@@ -9,14 +9,7 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        layer3 {
-            bindings = <&lt 3 ESC>;
-            key-positions = <37 40>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
@@ -69,7 +62,7 @@
             >;
         };
 
-        layer_3 {
+        Functions {
             bindings = <
 &trans      &trans        &trans        &trans        &trans        &trans          &kp F7  &kp F8  &trans  &trans  &trans  &trans
 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F4  &kp F5  &kp F6  &trans  &trans  &trans
@@ -112,6 +105,15 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans    &trans  &trans  &trans
             >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        Functions {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 };
